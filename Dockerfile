@@ -9,3 +9,7 @@ RUN apt-get update && \
     ./configure --static-mp4box --use-zlib=no && \
     make -j4 && \
     make install
+
+COPY ./scripts/ /scripts/
+
+ENTRYPOINT ["/bin/bash"]

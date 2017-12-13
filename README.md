@@ -1,24 +1,33 @@
-# SigSep STEMS Encoder/Decoder
+# SIGSEP MUS STEMS Encoder/Decoder
 
-## Usage
+## Setup
 
-### Build Docker Container from command line
+### Pull Docker Container
+
+The easiest way to set up the encoder and decoder for the `MUS` dataset is to install [docker](http://docker.com) and pull our precompiled image from dockerhub:
+
+```
+docker pull faroit/sigsep-mus-io
+```
+
+Alternatively (and if you want to customize the build script) you can clone the repository and build the docker container from command line using:
 
 ```
 docker build -t mus .
 ```
 
+## Usage
+
 ### Decode SIGSEP MUS to WAV format
 
-Unzip the MUS dataset. The default location is `data/MUS` inside this folder directory.
+Unzip the MUS dataset to some location of your choice.  default is `./data/MUS/..`
 
 #### Using Bash on Mac/Linux
 
-If you use the default location you can just run `sh decode.sh` to decode all stem files to waves.
 If you have the dataset saved in a different location, change the volume mounts in the docker command:
 
 ```
-docker run --rm -v $(pwd):/mus -v PATH_TO_MUS_DATASET:/data --entrypoint=/bin/bash mus /mus/decode.sh
+docker run --rm -v $(pwd)/data/MUS:/data faroit/sigsep-mus-io /scripts/decode.sh
 ```
 
 ### Using Windows 10
@@ -26,7 +35,7 @@ docker run --rm -v $(pwd):/mus -v PATH_TO_MUS_DATASET:/data --entrypoint=/bin/ba
 In Windows Command Line (`cmd`) you can use the current directory variables (`%cd%`) to mount the data directories.
 
 ```
-docker run --rm -v %cd%:/mus -v %cd%/data/MUS:/data --entrypoint=/bin/bash mus /mus/decode.sh
+docker run --rm -v %cd%/data/MUS:/data faroit/sigsep-mus-io /scripts/decode.sh
 ```
 
 
@@ -36,5 +45,5 @@ To encode a MUS estimate or wav directory, you can use the `sh encode.sh` script
 Again, if you have saved the data directoy in a different location than the default folder, please change it
 
 ```
-docker run --rm -v $(pwd):/mus -v $(pwd)/data/ESTIMATE_DIR:/data --entrypoint=/bin/bash mus /mus/encode.sh
+docker run --rm -v $(pwd)/data/ESTIMATE_DIR:/data faroit/sigsep-mus-io /mus/encode.sh
 ```

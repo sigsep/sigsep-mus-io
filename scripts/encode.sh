@@ -1,5 +1,5 @@
 # MP4Box -version
-cd "/mus/${MUS_DB}"
+cd "/data"
 
 subsets=( "test" "train" )
 
