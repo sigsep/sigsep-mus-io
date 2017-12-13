@@ -32,6 +32,9 @@ docker run --rm -v %cd%:/mus -v %cd%/data/MUS:/data --entrypoint=/bin/bash mus /
 
 ### Encode SIGSEP MUS to STEMS format
 
+To encode a MUS estimate or wav directory, you can use the `sh encode.sh` script.
+Again, if you have saved the data directoy in a different location than the default folder, please change it
+
 ```
-sh encode.sh
+docker run --rm -v $(pwd):/mus -v $(pwd)/data/ESTIMATE_DIR:/data --entrypoint=/bin/bash mus /mus/encode.sh
 ```
