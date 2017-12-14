@@ -27,12 +27,15 @@ do
           $name.mp4
       done
       # merge to mp4 stem using mp4box
-      MP4Box -itags "cover=/mus/sigsep.png" -add mixture.mp4#ID=Z stem.mp4 \
+      MP4Box -itags "cover=/scripts/sigsep.png" \
+             -add mixture.mp4#ID=Z stem.mp4 \
              -add drums.mp4#ID=Z:disable \
              -add bass.mp4#ID=Z:disable \
              -add other.mp4#ID=Z:disable \
              -add vocals.mp4#ID=Z:disable
-      mv stem.mp4 "../${dir}.stem.mp4"
+
+      mv stem.mp4 "../${dir}.stem.mp4";
+      rm drums.mp4 bass.mp4 other.mp4 vocals.mp4 mixture.mp4;
       cd ..;
     fi
   done
