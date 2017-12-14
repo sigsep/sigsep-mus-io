@@ -34,7 +34,7 @@ docker run --rm -v $(~)/data/MUS:/data faroit/sigsep-mus-io /scripts/decode.sh
 
 ### Using Windows (10)
 
-In Windows Command Line (`cmd`) you can use the directory variables (like `%HOMEDRIVE%%HOMEPATH%`) to mount the data directories.
+In Windows Command Line (`cmd`) you can use the directory variables (e.g. `%HOMEDRIVE%%HOMEPATH%`) to mount the data directories.
 
 ```
 docker run --rm -v %HOMEDRIVE%%HOMEPATH%/data/MUS:/data faroit/sigsep-mus-io /scripts/decode.sh

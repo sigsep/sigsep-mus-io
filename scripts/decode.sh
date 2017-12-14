@@ -12,11 +12,11 @@ do
     echo "$stem";
     mkdir "$name";
     cd "$name";
-    ffmpeg -i "../${stem}" -map 0:0 -vn mixture.wav
-    ffmpeg -i "../${stem}" -map 0:1 -vn drums.wav
-    ffmpeg -i "../${stem}" -map 0:2 -vn bass.wav
-    ffmpeg -i "../${stem}" -map 0:3 -vn other.wav
-    ffmpeg -i "../${stem}" -map 0:4 -vn vocals.wav
+    ffmpeg -loglevel panic -i "../${stem}" -map 0:0 -vn mixture.wav
+    ffmpeg -loglevel panic -i "../${stem}" -map 0:1 -vn drums.wav
+    ffmpeg -loglevel panic -i "../${stem}" -map 0:2 -vn bass.wav
+    ffmpeg -loglevel panic -i "../${stem}" -map 0:3 -vn other.wav
+    ffmpeg -loglevel panic -i "../${stem}" -map 0:4 -vn vocals.wav
     cd ..;
   done
   cd ..;
