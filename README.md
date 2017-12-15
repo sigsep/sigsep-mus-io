@@ -1,5 +1,7 @@
 # SIGSEP MUS STEMS Encoder/Decoder
 
+The purpose of this tool is to decode and encode the sigsep mus stems dataset. By providing a docker based installation setup, we can make sure that all users deal with the same decoded PCM data and therefore foster reproducible research.
+
 ## Setup
 
 The easiest way to set up the encoder and decoder for the `MUS` dataset is to install [docker](http://docker.com).
