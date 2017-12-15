@@ -11,6 +11,7 @@ encode () {
     do name=`echo $i | cut -d'.' -f1`;
     # encode to AAC using Fraunhofer AAC encoding parameters
     ffmpeg \
+      -ss 00:00:00.200 \
       -loglevel panic \
       -f s16le \
       -acodec pcm_s16le \
@@ -23,7 +24,8 @@ encode () {
   done
   # merge to mp4 stem using mp4box
   MP4Box -itags "cover=/scripts/sigsep.png" \
-         -add mixture.mp4#ID=Z stem.mp4 \
+         -add mixture.mp4#ID=Z \
+          stem.mp4 \
          -add drums.mp4#ID=Z:disable \
          -add bass.mp4#ID=Z:disable \
          -add other.mp4#ID=Z:disable \
