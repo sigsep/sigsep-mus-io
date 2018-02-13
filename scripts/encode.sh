@@ -8,7 +8,7 @@ encode () {
   cd "$1";
   for i in *.wav;
     # get all stem filenames
-    do name=`echo $i | cut -d'.' -f1`;
+    do name=`echo $i | awk -F".wav" '{$0=$1}1'`;
     # encode to AAC using Fraunhofer AAC encoding parameters
     ffmpeg \
       -ss 00:00:00.200 \

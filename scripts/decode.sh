@@ -8,7 +8,7 @@ do
   # encode to AAC
   cd $t;
   for stem in *.stem.mp4;
-    do name=`echo $stem | cut -d'.' -f1`;
+    do name=`echo $stem | awk -F".stem.mp4" '{$0=$1}1'`;
     echo "$stem";
     mkdir "$name";
     cd "$name";
