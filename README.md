@@ -49,7 +49,7 @@ To encode a MUS estimates directory, you can use the `sh encode.sh` script.
 Again, if you have saved the data directoy in a different location than the default folder, please change it
 
 ```
-docker run --rm -v $(~)/data/ESTIMATE_DIR:/data faroit/sigsep-mus-io /mus/encode.sh
+docker run --rm -v $(~)/data/ESTIMATE_DIR:/data faroit/sigsep-mus-io /scripts/encode.sh
 ```
 
 ## Manual Conversion
